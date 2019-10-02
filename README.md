@@ -85,26 +85,76 @@ print(myStringSevenEnd)
 Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
+```
+
+let message = "Good Afternoon!"
+
+print("There are \(message.count) characters in the message")
+
+if message.count % 2 == 0 {
+    print("String is even.")
+} else {
+    print("String is odd")
+}
+
+// Printing characters is string even or od
+// Solution for question above:
+switch message {
+case message where message.count % 2 == 0:
+    for char in message {
+        print(char, terminator: " ")
+    }
+default:
+    for (index, char) in message.enumerated() where index % 2 == 1 {
+        print(char, terminator: " ")
+    }
+}
+```
 
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+```
+var string7: Character = "E"
+
+
+```
+
 ***
 ## Question 8
 
 Build five pairs of **canonically equivalent** strings, the first of each being a pre-composed character and the second being one that uses combinable unicode scalars. Show that they are equivalent.
-
+```
+```var sent1 = "6" == "\u{0036}"
+var sent2 = "This is" == "\u{0054}\u{0068}\u{0069}\u{0073}\u{0020}\u{0069}\u{0073}"
+var sent3 = "so cool" == "\u{0073}\u{006F}\u{0020}\u{0063}\u{006f}\u{006F}\u{006C}"
+var sent4 = "Mommy" == "\u{004D}\u{006F}\u{006D}\u{006D}\u{0079}"
+var sent5 = "look at what I did" == "\u{006C}\u{006f}\u{006F}\u{006B}\u{0020}\u{0061}\u{0074}\u{0020}\u{0077}\u{0068}\u{0061}\u{0074}\u{0020}\u{0049}\u{0020}\u{0064}\u{0069}\u{0064}"
+```
 ***
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
+```
+let myString9 = "\u{0048}\u{0065}\u{006C}\u{006C}\u{006F}\u{0020}\u{0057}\u{006F}\u{0072}\u{006C}\u{0064}\u{0021}"
+print(myString9)
+```
 
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
+
+```
+var myNameUnicode = "\u{0045}\u{0072}\u{0069}\u{0063}"
+
+var myNamePlain = "Eric"
+
+myNamePlain == myNamePlain
+print("\(myNamePlain) equals \(myNameUnicode)")
+```
 
 ***
 ## Question 11
@@ -168,7 +218,12 @@ Input:
 
 Expected values:
 `replacedString = "R*plac* th* l*tt*r * with *"`
+```
+var aString = "Replace the letter e with *"
+var replacedString = aString.replacingOccurrences(of: "e", with: "*")
 
+print("original phrase is \n\"\(aString)\" \nThe new string now reads \n\"\(replacedString)\"")
+```
 ***
 ## Question 15
 
@@ -180,7 +235,14 @@ var reverse = ""
 
 // Your code here
 ```
+```
+var aString15 = "this string has 29 characters"
+var reverse = " "
 
+for char in aString15.reversed() {
+    print(char, terminator: "")
+}
+```
 Example:
 Input:
 `var aString = "Hello"`
@@ -211,6 +273,21 @@ occasional \() by late afternoon. Wind velocity will
 be \() miles an hour, and the high temperature should
 be around \() degrees. So, if you're going out, you had
 better plan on wearing your \()".
+```
+```
+Answer
+var geographicLocation: String = "New York"
+var adjective1: String = "scorching"
+var pluralNoun1: String = "winds"
+var adjective2: String = "medium"
+var pluralNoun2: String = "flurries"
+var number1: Int = 12
+var number2: Int = 64
+var articleOfClothing: String = "light winter/spring jackets"
+
+var madLib = "Here is tomorrow's weather report for \(geographicLocation) and vicinity. Early tomorrow, a \(adjective1)-front will collide with a mass of hot \(pluralNoun1) moving from the north. This means we can expect \(adjective2) winds and occasional \(pluralNoun2) by late afternoon. Wind velocity will be \(number1) miles an hour, and the high temperature should be around \(number2) degrees. So, if you're going out, you had better plan on wearing your \(articleOfClothing)."
+
+print(madLib)
 ```
 
 ***
